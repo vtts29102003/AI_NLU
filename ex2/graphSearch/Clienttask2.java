@@ -15,7 +15,9 @@ public class Clienttask2 {
 		ISearchAlgo algo1 = new BreadthFirstSearchAlgo();
 		ISearchAlgo algo2 = new DepthFirstSearchAlgo();
 		System.out.println("----------------" + "\n" + "task2");
+		
+		algo2.execute(nodeS,"S", "G"); 
 		algo1.execute(nodeS,"D", "H"); 
-		algo2.execute(nodeS,"S", "H"); 
+	
 	}
 }

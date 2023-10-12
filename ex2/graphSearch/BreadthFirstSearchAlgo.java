@@ -27,7 +27,7 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo{
             for (Node node : current.getChildrenNodes()) {
                 if (!visited.contains(node)) {
                     visited.add(node);
-                    node.setParent(current); // Track the parent
+                    node.setParent(current); // Track the parent, cái này nó lưu vết lại
                     queue.add(node);
                 }
             }
@@ -41,7 +41,8 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo{
 	public Node execute(Node root,String start, String goal) {
 		if(root.getLabel().equals(start)) this.execute(root, goal);
 		for (Node r : root.getChildrenNodes()) {
-			if(r.getLabel().equals(start)) {this.execute(r,goal);}
+			if(r.getLabel().equals(start)) {
+				this.execute(r,goal);}
 			else {this.execute(r, start,goal);}
 			}
 		
