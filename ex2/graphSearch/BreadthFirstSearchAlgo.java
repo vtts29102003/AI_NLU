@@ -13,6 +13,7 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo{
       boolean visitedUsed = false;
 	@Override
 	public Node execute(Node root, String goal) {
+		int cost = 0;
         queue.add(root);
         while (!queue.isEmpty()) {
             Node current = queue.poll();
@@ -21,11 +22,13 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo{
                 // Found the goal, track the path
                 List<String> path = NodeUtils.printPath(current);
                 System.out.println("BFS Path: " + path);
+                System.out.println("Chi phí Đường đi " + cost);
                 return current;
             }
 
             for (Node node : current.getChildrenNodes()) {
                 if (!visited.contains(node)) {
+                	cost += node.getPathCost();
                     visited.add(node);
                     node.setParent(current); // Track the parent, cái này nó lưu vết lại
                     queue.add(node);
