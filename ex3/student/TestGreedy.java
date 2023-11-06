@@ -1,5 +1,7 @@
 package student;
 
+
+
 public class TestGreedy {
 	public static void main(String[] args) {
 		Node s = new Node("S", 6);

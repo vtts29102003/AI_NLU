@@ -1,5 +1,7 @@
 package student;
 
+
+
 public class Edge {
 	private Node begin;
 	private Node end;

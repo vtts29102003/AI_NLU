@@ -3,6 +3,8 @@ package student;
 import java.util.ArrayList;
 import java.util.List;
 
+import student.Node;
+
 public class Node{
 	private String label;
 	private Node parent; // for print the path from the start node to goal node

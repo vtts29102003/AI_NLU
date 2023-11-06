@@ -1,5 +1,4 @@
 package student;
-
 public interface IInformedSearchAlgo {
 	public Node execute(Node root, String goal);
 

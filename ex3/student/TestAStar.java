@@ -1,7 +1,8 @@
 package student;
 
+
 public class TestAStar {
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		Node s = new Node("S", 6);
 		Node b = new Node("B", 4);
 		Node a = new Node("A", 4);

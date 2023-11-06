@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+
+
 public class AStarSearchAlgo implements IInformedSearchAlgo{	 
 		@Override
 		public Node execute(Node root, String goal) {
