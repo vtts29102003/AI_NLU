@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+import lab6.Node;
+
 
 
 public class AStarSearchAlgo implements IInformedSearchAlgo{	 

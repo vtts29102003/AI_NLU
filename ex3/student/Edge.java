@@ -1,6 +1,6 @@
 package student;
 
-
+import lab6.Node;
 
 public class Edge {
 	private Node begin;

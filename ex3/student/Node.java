@@ -3,7 +3,7 @@ package student;
 import java.util.ArrayList;
 import java.util.List;
 
-import student.Node;
+import lab6.Node;
 
 public class Node{
 	private String label;

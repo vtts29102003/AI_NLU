@@ -1,6 +1,6 @@
 package student;
 
-
+import lab6.Node;
 
 public class TestGreedy {
 	public static void main(String[] args) {
