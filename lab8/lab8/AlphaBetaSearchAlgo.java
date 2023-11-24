@@ -12,10 +12,8 @@ public class AlphaBetaSearchAlgo implements ISearchAlgo {
 	// return the action in SUCCESSORS(state) with value v
 	@Override
 	public void execute(Node node) {
-		int alpha = Integer.MIN_VALUE;
-        int beta = Integer.MAX_VALUE;
-        int bestValue = maxValue(node, alpha, beta);
- 
+		int result = maxValue(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		node.setValue(result);
 
 	}
 
@@ -30,13 +28,29 @@ public class AlphaBetaSearchAlgo implements ISearchAlgo {
 
 	public int maxValue(Node node, int alpha, int beta) {
 		if (node.isTerminal()) {
+			return node.getValue();
+			
 		}
-        int v = Integer.MIN_VALUE;
-  
-            alpha = Math.max(alpha, v);
-
-        return v;
-
+		int v = Integer.MIN_VALUE;
+		Collections.sort(node.getChildren(), Node.LabelComparator);
+//		for (Node child : node.getChildren()) {
+//			v = Math.max(v, minValue(child, alpha, beta));
+//			if (v >= beta) {
+//				return v;
+//			}
+//			alpha = Math.max(alpha, v);
+//		}
+		for (int i = 0; i < node.getChildren().size(); i++) {
+			v = Math.max(v, minValue(node.getChildren().get(i), alpha, beta));
+			if (v >= beta) {
+				for (int j = i + 1; j < node.getChildren().size(); j++) {
+					System.out.println("Cắt Node: " + node.getChildren().get(j).getLabel());
+				}
+				return v;
+			}
+			alpha = Math.max(alpha, v);
+		}
+		return v;
 	}
 	// function MIN-VALUE(state, alpha , beta) returns a utility value
 	// if TERMINAL-TEST(state) then return UTILITY(state)
@@ -48,7 +62,18 @@ public class AlphaBetaSearchAlgo implements ISearchAlgo {
 	// return v
 
 	public int minValue(Node node, int alpha, int beta) {
-	
-		return Integer.MAX_VALUE;
+		if (node.isTerminal()) {
+			return node.getValue();
+		}
+		int v = Integer.MAX_VALUE;
+		Collections.sort(node.getChildren(), Node.LabelComparator);
+		for (Node child : node.getChildren()) {
+			v = Math.min(v, maxValue(child, alpha, beta));
+			if (v <= alpha) {
+				return v;
+			}
+			beta = Math.min(beta, v);
+		}
+		return v;
 	}
 }
